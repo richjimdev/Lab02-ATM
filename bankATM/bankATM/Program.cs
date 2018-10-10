@@ -21,11 +21,16 @@ namespace bankATM
                 {
                     int selection = int.Parse(Console.ReadLine());
                     if (selection == 1) Console.WriteLine($"Your Balance is {GetBalance()}");
-                    if (selection == 4) break;
+                    else if (selection == 4) break;
+                    else throw new ArgumentException("InvalidATMSelection");
                 }
-                catch
+                catch (ArgumentException e)
                 {
                     Console.WriteLine("Please select 1 - 4 only.");
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Please only input a positive number");
                 }
 
             }
@@ -34,6 +39,7 @@ namespace bankATM
 
         public static decimal GetBalance()
         {
+            throw new Exception("haha");
             return balance;
         }
     }
