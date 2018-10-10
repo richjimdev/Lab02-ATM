@@ -4,9 +4,10 @@ namespace bankATM
 {
     public class Program
     {
+        public static decimal balance = 500.00m;
+
         public static void Main(string[] args)
         {
-            decimal balance = 500.00m;
             while(true)
             {
                 Console.WriteLine("Welcome to 401 bank! Select an option.");
@@ -18,16 +19,23 @@ namespace bankATM
 
                 try
                 {
-                    decimal selection = decimal.Parse(Console.ReadLine());
+                    int selection = int.Parse(Console.ReadLine());
+                    if (selection == 1) Console.WriteLine($"Your Balance is {GetBalance()}");
+                    if (selection == 4) break;
                 }
                 catch
                 {
-                    Console.WriteLine("Please input only positive numbers");
+                    Console.WriteLine("Please select 1 - 4 only.");
                 }
 
             }
+
         }
 
+        public static decimal GetBalance()
+        {
+            return balance;
+        }
     }
 }
 
