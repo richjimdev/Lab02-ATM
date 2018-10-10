@@ -29,6 +29,14 @@ namespace bankATM
                         Console.WriteLine($"Your new balance is now ${ GetBalance() }");
 
                     }
+                    else if (selection == 3)
+                    {
+                        Console.WriteLine($"How much would you like to deposit? Current balance is ${GetBalance()}");
+                        decimal ammount = decimal.Parse(Console.ReadLine());
+                        if (ammount <= 0) throw new Exception("NegativeNumberInput");
+                        Deposit(ammount);
+                        Console.WriteLine($"Your new balance is now ${ GetBalance() }");
+                    }
                     else if (selection == 4) Environment.Exit(0);
                     else throw new ArgumentException("InvalidATMSelection");
                 }
@@ -71,6 +79,11 @@ namespace bankATM
         {
             if ((balance - ammount) < 0) throw new IndexOutOfRangeException("NotEnoughMoney");
             return balance = balance - ammount;
+        }
+
+        public static decimal Deposit(decimal ammount)
+        {
+            return balance = balance + ammount;
         }
     }
 }

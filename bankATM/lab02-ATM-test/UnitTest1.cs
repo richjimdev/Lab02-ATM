@@ -15,15 +15,34 @@ namespace lab02_ATM_test
         }
 
         [Fact]
-        public void WithdrawModifiesBalance()
+        public void WithdrawReturnsDecreasedNumber()
         {
+            balance = 500;
             Assert.Equal(450, Withdraw(50));
         }
 
         [Fact]
-        public void GetBalanceReturnsBalanceAfterModification()
+        public void GetBalanceReturnsProperBalanceAfterWithdraw()
         {
-            Assert.Equal(450, GetBalance());
+            balance = 500;
+            Withdraw(100);
+            Assert.Equal(400, GetBalance());
         }
-    }
+
+        [Fact]
+        public void DepositReturnsIncreasedNumber()
+        {
+            balance = 500;
+            Assert.Equal(550, Deposit(50));
+        }
+
+        [Fact]
+        public void GetBalanceReturnsProperBalanceAfterDeposit()
+        {
+            balance = 500;
+            Deposit(100);
+            Assert.Equal(600, GetBalance());
+        }
+        
+        }
 }
