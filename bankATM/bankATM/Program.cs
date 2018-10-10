@@ -26,7 +26,7 @@ namespace bankATM
                 }
                 catch (ArgumentException e)
                 {
-                    Console.WriteLine("Please select 1 - 4 only.");
+                    Console.WriteLine("Please select options 1 - 4 only.");
                 }
                 catch (Exception e)
                 {
@@ -39,7 +39,6 @@ namespace bankATM
 
         public static decimal GetBalance()
         {
-            throw new Exception("haha");
             return balance;
         }
     }

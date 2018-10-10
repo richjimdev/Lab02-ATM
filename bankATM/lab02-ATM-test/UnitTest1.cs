@@ -1,5 +1,6 @@
 using System;
 using Xunit;
+using bankATM;
 using static bankATM.Program;
 
 namespace lab02_ATM_test
@@ -7,9 +8,9 @@ namespace lab02_ATM_test
     public class UnitTest1
     {
         [Fact]
-        public void Test1()
+        public void GetBalanceReturnsBalance()
         {
-
+            Assert.Equal(500, GetBalance());
         }
     }
 }
