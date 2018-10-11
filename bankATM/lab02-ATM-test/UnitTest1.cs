@@ -44,5 +44,5 @@ namespace lab02_ATM_test
             Assert.Equal(600, GetBalance());
         }
         
-        }
+    }
 }
